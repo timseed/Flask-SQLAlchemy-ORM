@@ -1,7 +1,9 @@
 from flask import Flask
-from .config import ProductionConfig, TestingConfig, DevelopmentConfig
 import os
+from .config import ProductionConfig,DevelopmentConfig,TestingConfig
+
 app = Flask(__name__)
+
 try:
     env=os.getenv("FLASK_ENV").upper()
 except:

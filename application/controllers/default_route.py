@@ -1,4 +1,7 @@
 import daiquiri
+from flask import jsonify, Response
+
+
 class default_route():
 
     def __init__(self,app):
@@ -8,4 +11,8 @@ class default_route():
         @app.route('/')
         def hellodefault():
             self.logger.debug("hellodefault Triggered")
-            return "Hello default!"
+            res = Response(mimetype='json',)
+            return jsonify({"Name":"default"})
+
+
+

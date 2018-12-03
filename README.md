@@ -104,12 +104,12 @@ At the moment the log file is placed in the /application folder - This is Ok for
 Testing and development purposes but will need to be corrected for production/Docker.
      
 It is *strongly* recommended that you create separate Logging config files, each for the varying Run/Levels.
- 
+
 
 # ToDo
    - Simple Html Page
    - Add Some Users
-   - Testing
+   - Testing (Limited Done)
    - Documentation   
    
    
