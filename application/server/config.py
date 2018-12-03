@@ -10,12 +10,13 @@ class Config:
     STATIC_FOLDER = f'{ROOT_PATH}/views/static'
     TEMPLATE_FOLDER = f'{ROOT_PATH}/views/template'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LOGGING_CONFIG = f'{ROOT_PATH}/server/Logging.yml'  # This is a Non Standard Field,
+                                                        # You can use a seperate config per Config
 
 
 class ProductionConfig(Config):
     __ROOT_PATH = Path(__file__).resolve().parent.parent
     SQLALCHEMY_DATABASE_URI = f'sqlite:///{__ROOT_PATH}/db/prod.db'  # SQLite, etc.
-    junk=1
 
 
 class DevelopmentConfig(Config):

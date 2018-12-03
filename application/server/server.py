@@ -12,7 +12,10 @@ except:
 
 if env.startswith("PRO"):
         app.config.from_object(ProductionConfig)
+        app.config['FLASK_ENV']="PRODUCTION"
 elif env.startswith("TES"):
             app.config.from_object(TestingConfig)
+            app.config['FLASK_ENV'] = "TEST"
 else:
     app.config.from_object(ProductionConfig)
+    app.config['FLASK_ENV'] = "DEVELOPMENT"

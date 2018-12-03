@@ -68,21 +68,49 @@ class user(Base):
     
 ## Server
 
-This is where the Global flask Settings are set. Please note that this is also where the db location is stored.
+This is where the Global flask Settings are set. Please note that this is also where the db location is specified.
+
+There are currently 3 standard Configs.
+
+  - Production
+  - Test
+  - Development
+  
+The App will look at an ENV Value i.e. $FLASK_ENV
+
+To Specify a Specific Run-Time Env please report the Env like this.
+
+```bash
+export FLASK_ENV=PRODUCTION
+```
+
+If an Env is not found then the app defaults to **DEVELOPMENT** env.
 
 
+## Views
 
+These are the HTML Objects that may (or may not be needed).
+
+It seesm to a convention within Flask that the static html pages go into a directory called **static**, and the dynamic pages, and placed in a directory called **template**.
+
+Presently none of these are included. This is intentional.
+
+
+### Logging
+
+There is a sample Logging file in server, this is implemented using **daiquiri**  - which is a nicer form of logging in Python.
+
+At the moment the log file is placed in the /application folder - This is Ok for
+Testing and development purposes but will need to be corrected for production/Docker.
      
-     
-   
-    
-
-
+It is *strongly* recommended that you create separate Logging config files, each for the varying Run/Levels.
+ 
 
 # ToDo
    - Simple Html Page
    - Add Some Users
    - Testing
-   - Documentation
+   - Documentation   
+   
    
    
