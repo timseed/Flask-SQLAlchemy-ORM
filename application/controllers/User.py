@@ -1,7 +1,7 @@
-class User_route():
+class User():
 
     def __init__(self,app):
-        print("Applying /user/ route")
+        print("Applying {} route".format(__name__))
 
         @app.route('/user/')
         def hellouser():
