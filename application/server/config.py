@@ -9,6 +9,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = f'sqlite:///{ROOT_PATH}/db/test.db'    # SQLite, etc.
     STATIC_FOLDER = f'{ROOT_PATH}/views/static'
     TEMPLATE_FOLDER = f'{ROOT_PATH}/views/template'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProductionConfig(Config):
