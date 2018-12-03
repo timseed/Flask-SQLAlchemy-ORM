@@ -1,7 +1,18 @@
 from flask import Flask
+from .config import ProductionConfig, TestingConfig, DevelopmentConfig
 import os
 app = Flask(__name__)
-path = os.path.dirname( os.path.realpath(__file__) )
-database_path = os.path.join(path, '../db/mydb.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_path
+try:
+    env=os.getenv("FLASK_ENV").upper()
+except:
+    print("Error No FLASK_ENV set")
+    print("Defaulting to DEVELOPMENT MODE")
+    env="DEVELOPMENT"
+    pass
+
+if env.startswith("PRO"):
+        app.config.from_object(ProductionConfig)
+elif env.startswith("TES"):
+            app.config.from_object(TestingConfig)
+else:
+    app.config.from_object(ProductionConfig)
