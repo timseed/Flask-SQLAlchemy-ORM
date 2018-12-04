@@ -6,3 +6,6 @@ class User():
         @app.route('/user/')
         def hellouser():
             return "Hello from Users!"
+
+
+

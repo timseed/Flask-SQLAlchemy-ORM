@@ -2,13 +2,13 @@
 import logging
 import daiquiri
 import yaml
-
 logger = daiquiri.getLogger(__name__)
-
-
+# I want the logging here - as these next two import create objects in their __init__
 from application.database import *
-from application.server import app
-junk=1
+from application.server import app, api
+
+
+
 try:
     with open(app.config['LOGGING_CONFIG'], "rt") as ofp:
         config = yaml.safe_load(ofp.read())
