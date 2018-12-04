@@ -106,6 +106,34 @@ Testing and development purposes but will need to be corrected for production/Do
 It is *strongly* recommended that you create separate Logging config files, each for the varying Run/Levels.
 
 
+# Restful Api's
+
+The previous code assumed that we are wrapping a Database, Web Service - and probably HTML - to propduce a standard-ish Web App, You are not however compelled to use this as a WebServer, instead you may with to create a RESTFUL Api - one which could have HTML, or which may not. There is nothing in the previous Models/Controllers that stops Flask, SqlAlchemy/ORM etc from being a Restful API - it is just that there are slightly better ways of doing it. 
+
+## Standard Flask and Restful-Api - the main issues.
+
+When I say there are issues, this is a little over-exagerated, as their as simply better and easier ways of doing a REST-API. Inside the testing module for "standard Flask" (application/server/test/testserver.py) we  had to write some code like this.
+
+```python
+
+        self.assertEqual(200, res.status_code)
+        ret_obj  = json.loads(res.data.decode())
+        self.assertEqual(self.bucketlist, ret_obj)
+```
+
+We had to manually convert the Request that we sent back and for this I used the Flask Response Class i.e.
+
+```python
+    return jsonify({"Name":"default"})
+```
+
+This data was received as a ByteArray - despite me trying to force it to being a json Object (the jsonify).
+
+This is an example of how life can be made easier if we are going to develo Restful API's
+
+
+ 
+
 # ToDo
    - Simple Html Page
    - Add Some Users

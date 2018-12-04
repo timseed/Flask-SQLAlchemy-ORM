@@ -11,7 +11,6 @@ class default_route():
         @app.route('/')
         def hellodefault():
             self.logger.debug("hellodefault Triggered")
-            res = Response(mimetype='json',)
             return jsonify({"Name":"default"})
 
 
