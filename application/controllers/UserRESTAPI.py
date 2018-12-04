@@ -16,15 +16,14 @@ class UserRESTAPI(Resource):
         self.logger.debug("{} being Invoked".format(__name__))
 
     def get(self, userId):
-        print("UserRESTAPI Hit")
+        self.logger.debug("GET {} Hit".format(__name__))
         if userId in userRESTData.keys():
             return {userId: userRESTData[userId]}
         else:
             abort(404)
 
-    def put(self, todo_id):
-        #To Do
-        return request("Ok")
-
+    def put(self, userId):
+        self.logger.debug("PUT {} Hit".format(__name__))
+        return {"Added": userId}
 
 api.add_resource(UserRESTAPI, '/REST/<string:userId>')

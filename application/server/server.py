@@ -3,8 +3,9 @@ import os
 from .config import ProductionConfig, DevelopmentConfig, TestingConfig
 from flask_restful import Api
 
-
+# app is the standard Flask app
 app = Flask(__name__)
+# api is the Restful-api class
 api = Api(app)
 
 try:

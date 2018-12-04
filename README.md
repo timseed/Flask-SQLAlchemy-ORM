@@ -133,6 +133,37 @@ This is an example of how life can be made easier if we are going to develo Rest
 
 ## Flask-Restful
 
+It is quite painless to make your FlaskProject Flask-Restful, it involves importing **from flask_restful import Api**
+
+And Adding an Api creation after the app is initialized (Look in the /application/server.py).
+
+To create a restful-Class, please look at the /application/controllers/UserRESTAPI.py.
+
+### UserRestAPI
+
+This module has a simple definition for 2 API Endpoints. It has a Global Dictionary to store the data items, but this could also be the Database/ORM we have previously defined. 
+
+  - GET
+  - PUT
+
+As the GET is the simplest of the two - and depending on your RESTAPI - you may only want to share a READ_Only view of your data. In which case this is the only End-Point that you are going to implement. 
+
+#### GET
+
+This is called from a CURL Request like this
+
+```bash
+curl -X GET  -i http://127.0.0.1:5000/REST/1
+```
+
+Note: The 'Route' end is **/REST/**"
+
+
+### Flask-RestPlus
+
+
+ 
+
 
 # ToDo
    - Simple Html Page
